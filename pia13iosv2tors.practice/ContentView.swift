@@ -19,6 +19,10 @@ struct ContentView: View {
         }
         .padding()
     }
+    
+    func nyfunktion() {
+        // funkar inte så bra
+    }
 }
 
 #Preview {

@@ -17,12 +17,13 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            Text("H")
         }
         .padding()
     }
-    
     func nyfunktion() {
-        // funkar inte så bra
+        // Funkar inte så bra
+        // Den är nu bra
     }
 }
 

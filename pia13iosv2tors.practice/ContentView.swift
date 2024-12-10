@@ -11,22 +11,58 @@ import SwiftUI
 // Fixa buggfix i publicerad version
 
 struct ContentView: View {
+    
+    @State var people : [String] = []
+    
+    @State var addname : String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Text("Hej")
-        }
+        NavigationStack {
+            VStack {
+                
+                NavigationLink(destination:
+                    ReadMoreView()) {
+                    Text("GO GO GO")
+                }
+                
+                Text("Hello world")
+                
+                
+                
+                HStack {
+                    TextField("Nytt namn", text: $addname)
+                    Button("Lägg till") {
+                        people.append(addname)
+                        addname = ""
+                    }
+                }
+                .padding(.horizontal)
+                
+                List(people, id: \.self) { personname
+                    in
+                    
+                    NavigationLink(destination:
+                        ReadMoreView(readmoretext: personname)) {
+                        PersonRow(thename: personname)
+                            .listRowInsets(EdgeInsets())
+                        
+                    }
+                
+                    
+                    
+                }
+            }// VStack
+            .listStyle(.inset)
+            .navigationTitle("TJENA")
+        }//NavigationStack
         .padding()
     }
-    
     func nyfunktion() {
-        // ännu bättre
+        // Funkar inte så bra
+        // Den är nu bra
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(people: ["Apelsin", "Banan"])
 }
